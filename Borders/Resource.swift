@@ -8,16 +8,6 @@
 
 import Foundation
 
-protocol URLQueryConvertible {
-    func queryItems() -> [NSURLQueryItem]
-}
-
-extension Dictionary: URLQueryConvertible {
-    func queryItems() -> [NSURLQueryItem] {
-        return map { NSURLQueryItem(name: String($0), value: String($1)) }
-    }
-}
-
 enum Method: String {
     case GET = "GET"
 }
@@ -25,7 +15,7 @@ enum Method: String {
 protocol Resource {
     var method: Method { get }
     var path: String { get }
-    var parameters: URLQueryConvertible { get }
+    var parameters: [String: String] { get }
 }
 
 extension Resource {
@@ -34,8 +24,8 @@ extension Resource {
         return .GET
     }
     
-    var parameters: URLQueryConvertible {
-        return [String: String]()
+    var parameters: [String: String] {
+        return [:]
     }
     
     func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest {
@@ -48,7 +38,9 @@ extension Resource {
             fatalError("Unable to create URL components from \(URL)")
         }
         
-        components.queryItems = parameters.queryItems()
+        components.queryItems = parameters.map {
+            NSURLQueryItem(name: String($0), value: String($1))
+        }
         
         guard let finalURL = components.URL else {
             fatalError("Unable to retrieve final URL")

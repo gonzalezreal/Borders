@@ -25,10 +25,10 @@ extension CountriesAPI: Resource {
         }
     }
     
-    var parameters: URLQueryConvertible {
+    var parameters: [String: String] {
         switch self {
         case .Name:
-            return ["fullText": true]
+            return ["fullText": "true"]
         case let .AlphaCodes(codes):
             return ["codes": codes.joinWithSeparator(";")]
         }
