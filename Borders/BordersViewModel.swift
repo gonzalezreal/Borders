@@ -40,6 +40,11 @@ class BordersViewModel: BordersViewModelType {
             .flatMap { country in
                 client.countriesWithCodes(country.borders)
             }
+            // Catch any error and print it in the console
+            .catchError { error in
+                print("Error: \(error)")
+                return Observable.just([])
+            }
             // Transform the resulting countries into [Border]
             .map { countries in
                 countries.map { (name: $0.name, nativeName: $0.nativeName) }

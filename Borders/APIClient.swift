@@ -21,9 +21,9 @@ extension APIClientError: CustomDebugStringConvertible {
         case .CouldNotDecodeJSON:
             return "Could not decode JSON"
         case let .BadStatus(status):
-            return "Bad status: \(status)"
+            return "Bad status \(status)"
         case let .Other(error):
-            return "Other error: \(error)"
+            return "\(error)"
         }
     }
 }
