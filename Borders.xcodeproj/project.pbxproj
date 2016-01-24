@@ -17,6 +17,11 @@
 		82043AAA1C55147A0097CF7F /* UITableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AA91C55147A0097CF7F /* UITableViewHelpers.swift */; };
 		82043AAF1C5528690097CF7F /* BorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AAD1C5528690097CF7F /* BorderCell.swift */; };
 		82043AB01C5528690097CF7F /* BorderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82043AAE1C5528690097CF7F /* BorderCell.xib */; };
+		82043AB51C552DB30097CF7F /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AB41C552DB30097CF7F /* Resource.swift */; };
+		82043AB71C5530780097CF7F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AB61C5530780097CF7F /* APIClient.swift */; };
+		82043AB91C5533210097CF7F /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AB81C5533210097CF7F /* JSONDecodable.swift */; };
+		82043ABD1C5535AE0097CF7F /* CountriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043ABC1C5535AE0097CF7F /* CountriesAPI.swift */; };
+		82043ABF1C553AF60097CF7F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043ABE1C553AF60097CF7F /* Country.swift */; };
 		8EAD30177025E9FB8290DB8E /* Pods_Borders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9D33A4DBCB78E27D2FAFB52 /* Pods_Borders.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,11 @@
 		82043AA91C55147A0097CF7F /* UITableViewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewHelpers.swift; sourceTree = "<group>"; };
 		82043AAD1C5528690097CF7F /* BorderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderCell.swift; sourceTree = "<group>"; };
 		82043AAE1C5528690097CF7F /* BorderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BorderCell.xib; sourceTree = "<group>"; };
+		82043AB41C552DB30097CF7F /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		82043AB61C5530780097CF7F /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		82043AB81C5533210097CF7F /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		82043ABC1C5535AE0097CF7F /* CountriesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesAPI.swift; sourceTree = "<group>"; };
+		82043ABE1C553AF60097CF7F /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B7E63F6E16809DCF16AECF97 /* Pods-BordersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BordersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BordersTests/Pods-BordersTests.release.xcconfig"; sourceTree = "<group>"; };
 		B9D33A4DBCB78E27D2FAFB52 /* Pods_Borders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Borders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED339DFE5CA63E00485E464F /* Pods_BordersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BordersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +125,7 @@
 		82043A7E1C54EF7D0097CF7F /* Borders */ = {
 			isa = PBXGroup;
 			children = (
+				82043AB31C552CFB0097CF7F /* API */,
 				82043A9F1C54F0BD0097CF7F /* UI */,
 				82043A861C54EF7D0097CF7F /* Assets.xcassets */,
 				82043A881C54EF7D0097CF7F /* LaunchScreen.storyboard */,
@@ -151,6 +162,34 @@
 				82043AA91C55147A0097CF7F /* UITableViewHelpers.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		82043AB31C552CFB0097CF7F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				82043ABB1C5535870097CF7F /* Countries */,
+				82043ABA1C55357B0097CF7F /* Core */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		82043ABA1C55357B0097CF7F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				82043AB41C552DB30097CF7F /* Resource.swift */,
+				82043AB61C5530780097CF7F /* APIClient.swift */,
+				82043AB81C5533210097CF7F /* JSONDecodable.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		82043ABB1C5535870097CF7F /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				82043ABC1C5535AE0097CF7F /* CountriesAPI.swift */,
+				82043ABE1C553AF60097CF7F /* Country.swift */,
+			);
+			name = Countries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,9 +393,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				82043AA11C54F1D00097CF7F /* BordersViewController.swift in Sources */,
+				82043AB71C5530780097CF7F /* APIClient.swift in Sources */,
 				82043A801C54EF7D0097CF7F /* AppDelegate.swift in Sources */,
+				82043AB91C5533210097CF7F /* JSONDecodable.swift in Sources */,
+				82043ABD1C5535AE0097CF7F /* CountriesAPI.swift in Sources */,
 				82043AA31C54F1F50097CF7F /* BordersViewModel.swift in Sources */,
+				82043AB51C552DB30097CF7F /* Resource.swift in Sources */,
 				82043AAA1C55147A0097CF7F /* UITableViewHelpers.swift in Sources */,
+				82043ABF1C553AF60097CF7F /* Country.swift in Sources */,
 				82043AAF1C5528690097CF7F /* BorderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

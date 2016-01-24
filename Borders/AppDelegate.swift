@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func installRootViewController() {
-        let bordersViewController = BordersViewController(countryName: "Germany")
+        let bordersViewController = BordersViewController(countryName: "China")
         let navigationController = UINavigationController(rootViewController: bordersViewController)
         window?.rootViewController = navigationController
     }
