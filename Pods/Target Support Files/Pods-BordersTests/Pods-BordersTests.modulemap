@@ -1,0 +1,6 @@
+framework module Pods_BordersTests {
+  umbrella header "Pods-BordersTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
