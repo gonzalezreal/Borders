@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		3831908B5392CFBA56480D1B /* Pods_BordersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED339DFE5CA63E00485E464F /* Pods_BordersTests.framework */; };
 		82043A801C54EF7D0097CF7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043A7F1C54EF7D0097CF7F /* AppDelegate.swift */; };
-		82043A821C54EF7D0097CF7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043A811C54EF7D0097CF7F /* ViewController.swift */; };
-		82043A851C54EF7D0097CF7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82043A831C54EF7D0097CF7F /* Main.storyboard */; };
 		82043A871C54EF7D0097CF7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82043A861C54EF7D0097CF7F /* Assets.xcassets */; };
 		82043A8A1C54EF7D0097CF7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82043A881C54EF7D0097CF7F /* LaunchScreen.storyboard */; };
 		82043A951C54EF7D0097CF7F /* BordersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043A941C54EF7D0097CF7F /* BordersTests.swift */; };
+		82043AA11C54F1D00097CF7F /* BordersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AA01C54F1D00097CF7F /* BordersViewController.swift */; };
+		82043AA31C54F1F50097CF7F /* BordersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AA21C54F1F50097CF7F /* BordersViewModel.swift */; };
+		82043AAA1C55147A0097CF7F /* UITableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AA91C55147A0097CF7F /* UITableViewHelpers.swift */; };
+		82043AAF1C5528690097CF7F /* BorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82043AAD1C5528690097CF7F /* BorderCell.swift */; };
+		82043AB01C5528690097CF7F /* BorderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82043AAE1C5528690097CF7F /* BorderCell.xib */; };
 		8EAD30177025E9FB8290DB8E /* Pods_Borders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9D33A4DBCB78E27D2FAFB52 /* Pods_Borders.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,14 +36,17 @@
 		5F910FC187B017C490A3EAD7 /* Pods-Borders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Borders.release.xcconfig"; path = "Pods/Target Support Files/Pods-Borders/Pods-Borders.release.xcconfig"; sourceTree = "<group>"; };
 		82043A7C1C54EF7D0097CF7F /* Borders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82043A7F1C54EF7D0097CF7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82043A811C54EF7D0097CF7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		82043A841C54EF7D0097CF7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82043A861C54EF7D0097CF7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82043A891C54EF7D0097CF7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82043A8B1C54EF7D0097CF7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82043A901C54EF7D0097CF7F /* BordersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BordersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82043A941C54EF7D0097CF7F /* BordersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BordersTests.swift; sourceTree = "<group>"; };
 		82043A961C54EF7D0097CF7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82043AA01C54F1D00097CF7F /* BordersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BordersViewController.swift; sourceTree = "<group>"; };
+		82043AA21C54F1F50097CF7F /* BordersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BordersViewModel.swift; sourceTree = "<group>"; };
+		82043AA91C55147A0097CF7F /* UITableViewHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewHelpers.swift; sourceTree = "<group>"; };
+		82043AAD1C5528690097CF7F /* BorderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderCell.swift; sourceTree = "<group>"; };
+		82043AAE1C5528690097CF7F /* BorderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BorderCell.xib; sourceTree = "<group>"; };
 		B7E63F6E16809DCF16AECF97 /* Pods-BordersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BordersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BordersTests/Pods-BordersTests.release.xcconfig"; sourceTree = "<group>"; };
 		B9D33A4DBCB78E27D2FAFB52 /* Pods_Borders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Borders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED339DFE5CA63E00485E464F /* Pods_BordersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BordersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,9 +115,7 @@
 		82043A7E1C54EF7D0097CF7F /* Borders */ = {
 			isa = PBXGroup;
 			children = (
-				82043A7F1C54EF7D0097CF7F /* AppDelegate.swift */,
-				82043A811C54EF7D0097CF7F /* ViewController.swift */,
-				82043A831C54EF7D0097CF7F /* Main.storyboard */,
+				82043A9F1C54F0BD0097CF7F /* UI */,
 				82043A861C54EF7D0097CF7F /* Assets.xcassets */,
 				82043A881C54EF7D0097CF7F /* LaunchScreen.storyboard */,
 				82043A8B1C54EF7D0097CF7F /* Info.plist */,
@@ -126,6 +130,27 @@
 				82043A961C54EF7D0097CF7F /* Info.plist */,
 			);
 			path = BordersTests;
+			sourceTree = "<group>";
+		};
+		82043A9F1C54F0BD0097CF7F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				82043AA81C55145D0097CF7F /* Helpers */,
+				82043A7F1C54EF7D0097CF7F /* AppDelegate.swift */,
+				82043AA01C54F1D00097CF7F /* BordersViewController.swift */,
+				82043AA21C54F1F50097CF7F /* BordersViewModel.swift */,
+				82043AAD1C5528690097CF7F /* BorderCell.swift */,
+				82043AAE1C5528690097CF7F /* BorderCell.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		82043AA81C55145D0097CF7F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				82043AA91C55147A0097CF7F /* UITableViewHelpers.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +240,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82043AB01C5528690097CF7F /* BorderCell.xib in Resources */,
 				82043A8A1C54EF7D0097CF7F /* LaunchScreen.storyboard in Resources */,
 				82043A871C54EF7D0097CF7F /* Assets.xcassets in Resources */,
-				82043A851C54EF7D0097CF7F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +353,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82043A821C54EF7D0097CF7F /* ViewController.swift in Sources */,
+				82043AA11C54F1D00097CF7F /* BordersViewController.swift in Sources */,
 				82043A801C54EF7D0097CF7F /* AppDelegate.swift in Sources */,
+				82043AA31C54F1F50097CF7F /* BordersViewModel.swift in Sources */,
+				82043AAA1C55147A0097CF7F /* UITableViewHelpers.swift in Sources */,
+				82043AAF1C5528690097CF7F /* BorderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,14 +380,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		82043A831C54EF7D0097CF7F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82043A841C54EF7D0097CF7F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		82043A881C54EF7D0097CF7F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
