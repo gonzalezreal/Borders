@@ -26,4 +26,13 @@ class CountryTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    func testInvalidJSONDecoding() {
+        let dictionary: JSONDictionary = [
+            "borders": ["AND", "FRA", "GIB", "PRT", "MAR"],
+        ]
+        
+        let country: Country? = decode(dictionary)
+        XCTAssertNil(country)
+    }
 }

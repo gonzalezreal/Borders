@@ -28,7 +28,8 @@ class ResourceTests: XCTestCase {
         let baseURL = NSURL(string: "https://example.com/api/v2")!
         let request = TestResource.Example.requestWithBaseURL(baseURL)
         let expectedURL = NSURL(string: "https://example.com/api/v2/example?bar=foo&foo=bar")!
+        let URL = request.URL!
         
-        XCTAssertEqual(expectedURL, request.URL!)
+        XCTAssertEqual(expectedURL, URL)
     }
 }

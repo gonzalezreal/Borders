@@ -24,10 +24,6 @@ extension Resource {
         return .GET
     }
     
-    var parameters: [String: String] {
-        return [:]
-    }
-    
     func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest {
         let URL = baseURL.URLByAppendingPathComponent(path)
         
