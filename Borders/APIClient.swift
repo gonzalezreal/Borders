@@ -66,6 +66,7 @@ final class APIClient {
                     
                     if 200 ..< 300 ~= HTTPResponse.statusCode {
                         observer.onNext(data ?? NSData())
+                        observer.onCompleted()
                     }
                     else {
                         observer.onError(APIClientError.BadStatus(status: HTTPResponse.statusCode))
