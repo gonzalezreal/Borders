@@ -1,6 +1,11 @@
-# Xcode
-#
+## Generated build
 build/
+DerivedData/
+
+## Frameworks
+Modules/*/Frameworks/
+
+## Settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -9,25 +14,46 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata
-*.xccheckout
+xcuserdata/
+
+## Other
 *.moved-aside
-DerivedData
-*.hmap
-*.ipa
 *.xcuserstate
 
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-#
-# Pods/
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
 
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
 
+## Swift Package Manager
+Packages/
+.build/
+
+## CocoaPods
+Pods/
+
+## Carthage
 Carthage/Build
+
+## Fastlane
+fastlane/.env.*
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+#Ignore folder mac
+.DS_Store
+
+#Identities
+*.cer
+*.p12
+*.certSigningRequest
+*.mobileprovision
+
+\.idea/
