@@ -52,6 +52,6 @@ class BordersViewModel: BordersViewModelType {
             // Make sure events are delivered in the main thread
             .observeOn(MainScheduler.instance)
             // Make sure multiple subscriptions share the side effects
-            .shareReplay(1)
+            .share(replay: 1)
     }
 }
