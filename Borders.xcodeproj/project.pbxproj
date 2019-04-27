@@ -98,7 +98,6 @@
 				5C2E938776CDF78713D2857A /* Pods-BordersTests.debug.xcconfig */,
 				EE728031EE8B72B668FB04C1 /* Pods-BordersTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -268,10 +267,9 @@
 			};
 			buildConfigurationList = 82043A771C54EF7D0097CF7F /* Build configuration list for PBXProject "Borders" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
