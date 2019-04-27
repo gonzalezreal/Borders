@@ -34,7 +34,7 @@ extension Resource {
             fatalError("Unable to create URL components from \(URL)")
         }
         
-        components.queryItems = parameters.map {
+        components.queryItems = parameters.sorted(by: { $0.key < $1.key }).map {
             URLQueryItem(name: String($0), value: String($1))
         }
         
