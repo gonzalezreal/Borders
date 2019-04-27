@@ -30,27 +30,27 @@ extension CountriesAPI: Resource {
         case .Name:
             return ["fullText": "true"]
         case let .AlphaCodes(codes):
-            return ["codes": codes.joinWithSeparator(";")]
+            return ["codes": codes.joined(separator: ";")]
         }
     }
 }
 
-extension NSURL {
-    class func countriesURL() -> NSURL {
-        return NSURL(string: "https://restcountries.eu/rest/v1")!
+extension URL {
+    static func countriesURL() -> URL {
+        return URL(string: "https://restcountries.eu/rest/v1")!
     }
 }
 
 extension APIClient {
     class func countriesAPIClient() -> APIClient {
-        return APIClient(baseURL: NSURL.countriesURL())
+        return APIClient(baseURL: URL.countriesURL())
     }
     
     func countryWithName(name: String) -> Observable<Country> {
-        return objects(CountriesAPI.Name(name: name)).map { $0[0] }
+        return objects(resource: CountriesAPI.Name(name: name)).map { $0[0] }
     }
     
     func countriesWithCodes(codes: [String]) -> Observable<[Country]> {
-        return objects(CountriesAPI.AlphaCodes(codes: codes))
+        return objects(resource: CountriesAPI.AlphaCodes(codes: codes))
     }
 }

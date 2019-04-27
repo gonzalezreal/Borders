@@ -34,11 +34,11 @@ class BordersViewModel: BordersViewModelType {
         // self in the closure
         let client = countriesClient
         
-        self.borders = client.countryWithName(countryName)
+        self.borders = client.countryWithName(name: countryName)
             // Get the countries corresponding to the alpha codes
             // specified in the `borders` property
             .flatMap { country in
-                client.countriesWithCodes(country.borders)
+                client.countriesWithCodes(codes: country.borders)
             }
             // Catch any error and print it in the console
             .catchError { error in
