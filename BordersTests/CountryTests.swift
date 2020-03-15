@@ -18,7 +18,7 @@ class CountryTests: XCTestCase {
             "nativeName": "España"
         ]
         
-        if let country: Country = decode(dictionary) {
+        if let country: Country = decode(dictionary: dictionary) {
             XCTAssertEqual("Spain", country.name)
             XCTAssertEqual("España", country.nativeName)
             XCTAssertEqual(["AND", "FRA", "GIB", "PRT", "MAR"], country.borders)
@@ -32,7 +32,7 @@ class CountryTests: XCTestCase {
             "borders": ["AND", "FRA", "GIB", "PRT", "MAR"],
         ]
         
-        let country: Country? = decode(dictionary)
+        let country: Country? = decode(dictionary: dictionary)
         XCTAssertNil(country)
     }
 }

@@ -6,13 +6,13 @@
 //  Copyright © 2016 Guillermo Gonzalez. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 
-enum APIClientError: ErrorType {
+enum APIClientError: Error {
     case CouldNotDecodeJSON
     case BadStatus(status: Int)
-    case Other(NSError)
+    case Other(Error)
 }
 
 extension APIClientError: CustomDebugStringConvertible {
@@ -30,14 +30,14 @@ extension APIClientError: CustomDebugStringConvertible {
 
 final class APIClient {
     
-    init(baseURL: NSURL, configuration: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()) {
+    init(baseURL: URL, configuration: URLSessionConfiguration = .default) {
         self.baseURL = baseURL
-        self.session = NSURLSession(configuration: configuration)
+        self.session = URLSession(configuration: configuration)
     }
     
     func objects<T: JSONDecodable>(resource: Resource) -> Observable<[T]> {
-        return data(resource).map { data in
-            guard let objects: [T] = decode(data) else {
+        return data(resource: resource).map { data in
+            guard let objects: [T] = decode(data: data) else {
                 throw APIClientError.CouldNotDecodeJSON
             }
             
@@ -47,36 +47,36 @@ final class APIClient {
     
     // MARK: - Private
     
-    private let baseURL: NSURL
-    private let session: NSURLSession
+    private let baseURL: URL
+    private let session: URLSession
     
-    private func data(resource: Resource) -> Observable<NSData> {
+    private func data(resource: Resource) -> Observable<Data> {
         
-        let request = resource.requestWithBaseURL(baseURL)
+        let request = resource.requestWithBaseURL(baseURL: baseURL)
         
         return Observable.create { observer in
-            let task = self.session.dataTaskWithRequest(request) { data, response, error in
+            let task = self.session.dataTask(with: request) { data, response, error in
+                guard error == nil, let data = data else {
+                    observer.onError(APIClientError.Other(error!))
+                    return
+                }
                 
-                if let error = error {
-                    observer.onError(APIClientError.Other(error))
-                } else {
-                    guard let HTTPResponse = response as? NSHTTPURLResponse else {
-                        fatalError("Couldn't get HTTP response")
-                    }
-                    
-                    if 200 ..< 300 ~= HTTPResponse.statusCode {
-                        observer.onNext(data ?? NSData())
-                        observer.onCompleted()
-                    }
-                    else {
-                        observer.onError(APIClientError.BadStatus(status: HTTPResponse.statusCode))
-                    }
+                guard let HTTPResponse = response as? HTTPURLResponse else {
+                    fatalError("Couldn't get HTTP response")
+                }
+                
+                if 200 ..< 300 ~= HTTPResponse.statusCode {
+                    observer.onNext(data)
+                    observer.onCompleted()
+                }
+                else {
+                    observer.onError(APIClientError.BadStatus(status: HTTPResponse.statusCode))
                 }
             }
             
             task.resume()
             
-            return AnonymousDisposable {
+            return Disposables.create {
                 task.cancel()
             }
         }

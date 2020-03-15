@@ -23,7 +23,7 @@ class BordersViewController: UITableViewController {
     init(viewModel: BordersViewModelType) {
         self.viewModel = viewModel
         
-        super.init(style: .Plain)
+        super.init(style: .plain)
     }
     
     convenience init(countryName: String) {
@@ -46,7 +46,7 @@ class BordersViewController: UITableViewController {
     // MARK: - Private
     
     private func setupView() {
-        tableView.register(BorderCell)
+        tableView.register(BorderCell.self)
         tableView.rowHeight = BorderCell.rowHeight
     }
     
@@ -55,12 +55,12 @@ class BordersViewController: UITableViewController {
         tableView.dataSource = nil
         
         viewModel.borders
-            .bindTo(tableView.rx_itemsWithCellFactory) { tableView, index, border in
+            .bind(to: tableView.rx.items) { tableView, index, border in
                 let cell: BorderCell = tableView.dequeueReusableCell()
                 cell.border = border
                 
                 return cell
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 }

@@ -31,7 +31,7 @@ class APIClientTests: XCTestCase {
         let parameters: [String: String] = ["testing": "true"]
     }
     
-    let client = APIClient(baseURL: NSURL(string: "http://test.com")!)
+    let client = APIClient(baseURL: URL(string: "http://test.com")!)
     let disposeBag = DisposeBag()
     
     override func tearDown() {
@@ -40,35 +40,35 @@ class APIClientTests: XCTestCase {
     }
     
     func testValidResponse() {
-        stub(isHost("test.com")) { request in
-            XCTAssertEqual("http://test.com/object?testing=true", request.URL!.absoluteString)
+        stub(condition: isHost("test.com")) { request in
+            XCTAssertEqual("http://test.com/object?testing=true", request.url?.absoluteString)
             
-            let path = OHPathForFile("test.json", self.dynamicType)!
-            return fixture(path, headers: nil)
+            let path = OHPathForFile("test.json", type(of: self))!
+            return fixture(filePath: path, headers: nil)
         }
         
-        let completed = self.expectationWithDescription("completed")
-        let observable: Observable<[TestModel]> = client.objects(TestResource())
+        let completed = self.expectation(description: "completed")
+        let observable: Observable<[TestModel]> = client.objects(resource: TestResource())
         
-        observable.subscribeNext { models in
+        observable.subscribe(onNext: { models in
             XCTAssertEqual(1, models.count)
             XCTAssertEqual("bar", models[0].foo)
             
             completed.fulfill()
-        }.addDisposableTo(disposeBag)
-        
-        self.waitForExpectationsWithTimeout(1, handler: nil)
+        }).disposed(by: disposeBag)
+
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
     
     func testBadStatus() {
-        stub(isHost("test.com")) { request in
-            return OHHTTPStubsResponse(data: NSData(), statusCode: 404, headers: nil)
+        stub(condition: isHost("test.com")) { request in
+            return OHHTTPStubsResponse(data: Data(), statusCode: 404, headers: nil)
         }
         
-        let errored = self.expectationWithDescription("errored")
-        let observable: Observable<[TestModel]> = client.objects(TestResource())
+        let errored = self.expectation(description: "errored")
+        let observable: Observable<[TestModel]> = client.objects(resource: TestResource())
         
-        observable.subscribeError { e in
+        observable.subscribe(onError: { e in
             let error = e as! APIClientError
             switch error {
             case let .BadStatus(status):
@@ -77,8 +77,8 @@ class APIClientTests: XCTestCase {
                 XCTFail()
             }
             errored.fulfill()
-        }.addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         
-        self.waitForExpectationsWithTimeout(1, handler: nil)
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 }

@@ -8,26 +8,25 @@
 
 import Foundation
 
-typealias JSONDictionary = [String: AnyObject]
+typealias JSONDictionary = [String: Any]
 
 protocol JSONDecodable {
     init?(dictionary: JSONDictionary)
 }
 
 func decode<T: JSONDecodable>(dictionaries: [JSONDictionary]) -> [T] {
-    return dictionaries.flatMap { T(dictionary: $0) }
+    return dictionaries.compactMap { T(dictionary: $0) }
 }
 
 func decode<T: JSONDecodable>(dictionary: JSONDictionary) -> T? {
     return T(dictionary: dictionary)
 }
 
-func decode<T:JSONDecodable>(data: NSData) -> [T]? {
-    guard let JSONObject = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
-        dictionaries = JSONObject as? [JSONDictionary],
-        objects: [T] = decode(dictionaries) else {
+func decode<T:JSONDecodable>(data: Data) -> [T]? {
+    guard let JSONObject = try? JSONSerialization.jsonObject(with: data, options: []),
+        let dictionaries = JSONObject as? [JSONDictionary] else {
             return nil
     }
     
-    return objects
+    return decode(dictionaries: dictionaries)
 }

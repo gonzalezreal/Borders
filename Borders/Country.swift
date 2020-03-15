@@ -17,7 +17,7 @@ struct Country {
 extension Country: JSONDecodable {
     init?(dictionary: JSONDictionary) {
         guard let name = dictionary["name"] as? String,
-            nativeName = dictionary["nativeName"] as? String else {
+            let nativeName = dictionary["nativeName"] as? String else {
                 return nil
         }
         

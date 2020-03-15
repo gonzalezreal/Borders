@@ -1,12 +1,14 @@
-platform :ios, '9.0'
+platform :ios, '11.0'
 use_frameworks!
 
 target 'Borders' do
-  pod 'RxSwift', '~>2.0'
-  pod 'RxCocoa', '~>2.0'
+  pod 'RxSwift', '4.4.2'
+  pod 'RxCocoa', '4.4.2'
 end
 
 target 'BordersTests' do
-  pod 'OHHTTPStubs', '~>4.6'
-  pod 'OHHTTPStubs/Swift', '~>4.6'
+  pod 'RxSwift', '4.4.2'
+  pod 'RxCocoa', '4.4.2'
+  pod 'OHHTTPStubs', '7.0.0'
+  pod 'OHHTTPStubs/Swift', '7.0.0'
 end
